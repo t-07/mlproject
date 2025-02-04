@@ -1,5 +1,9 @@
 pandas
 numpy
 seaborn
+matplotlib
+scikit-learn
+catboost
+xgboost
 #-e . 
 # this is used to run setup.py file from here
