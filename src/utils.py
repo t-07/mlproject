@@ -8,8 +8,6 @@ import pandas as pd
 
 from src.exception import CustomException
 
-def hello():
-    print("Hello to utils .py file")
 
 def save_object(file_path,obj):
     try:
