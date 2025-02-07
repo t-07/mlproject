@@ -26,7 +26,7 @@ class DataTransformation:
     def get_data_transformer_object(self):
         
         try:
-            num_variables=['math score','reading score','writing score']
+            num_variables=['reading score','writing score']
             cat_variables=[
                 'gender',
                 'race/ethnicity',
@@ -75,14 +75,11 @@ class DataTransformation:
 
             preprocessing_obj=self.get_data_transformer_object()
 
-            train_df['total score']=train_df['math score']+train_df['reading score']+train_df['writing score']
-            test_df['total score']=test_df['math score']+test_df['reading score']+test_df['writing score']
+            X_Train=train_df.drop(columns=['math score'], axis=1)
+            Y_Train=train_df['math score']
 
-            X_Train=train_df.drop(columns=['total score'], axis=1)
-            Y_Train=train_df['total score']
-
-            X_Test=test_df.drop(columns=['total score'], axis=1)
-            Y_Test=test_df['total score']
+            X_Test=test_df.drop(columns=['math score'], axis=1)
+            Y_Test=test_df['math score']
             
             logging.info(
                 f"Applying preprocessing object on training dataframe and testing dataframe."
